@@ -180,16 +180,8 @@
         )
       );
 
-      /* Process cart items */
-      /* Data Driven Design
-	   * 
-	   * Added functionality to allow for use of freightquote module in admin checkout seession.
-	   */
-	  if(Mage::getSingleton('admin/session')->isLoggedIn()){
-	  	$cartItems = Mage::getModel('adminhtml/session_quote')->getQuote()->getAllVisibleItems();
-	  } else {
-	  	$cartItems = Mage::getModel('checkout/session')->getQuote()->getAllItems();
-	  }      
+      /* Process cart items */ 
+      $cartItems = Mage::getModel('checkout/session')->getQuote()->getAllItems();
       $shipmentProducts = array();
       $counter = 1;
       $excluded = 0;

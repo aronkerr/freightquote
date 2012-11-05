@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!--
+  Freightquote.com Shipping Module for Magento Commerce
+
+  Copyright (c) 2010 Freightquote.com
+  
+  Developed by Dynamo Effects - sales [at] dynamoeffects.com
+
+  Released under the Open Software License (OSL 3.0)
+-->
+<config>
+  <sections>
+    <carriers>
+      <groups>
+        <freightquote translate="label" module="shipping">
+          <label>Freightquote.com</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>13</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Title</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>This is the shipping method title your customers will see.</comment>
+            </title>
+            <username translate="label">
+              <label>Username</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>3</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Enter the e-mail address used to log into Freightquote.com.</comment>
+            </username>
+            <password translate="label">
+              <label>Password</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>4</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Enter the password used to log into Freightquote.com.</comment>
+            </password>
+            <shipment_label translate="label">
+              <label>Shipping Label</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>This can be used to assign a label to the shipment that will be meaningful to the end user.</comment>
+            </shipment_label>
+            <service_type translate="label">
+              <label>Service Type</label>
+              <frontend_type>select</frontend_type>
+              <source_model>Freightquote_Shipping_Model_Carrier_Source_Servicetype</source_model>
+              <sort_order>6</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Select the service type you will use for your shipments.</comment>
+            </service_type>
+            <origin_location_type translate="label">
+              <label><![CDATA[<b>ORIGIN:</b> Location Type]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>Freightquote_Shipping_Model_Carrier_Source_Locationtype</source_model>
+              <sort_order>7</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Choose the location type that best fits. (Recommended: "Origin")</comment>
+            </origin_location_type>
+            <origin_dock translate="label">
+              <label><![CDATA[<b>ORIGIN:</b> Loading Dock]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>8</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Does your shipping location have a loading dock?</comment>
+            </origin_dock>
+            <origin_liftgate translate="label">
+              <label><![CDATA[<b>ORIGIN:</b> Liftgate Required?]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>9</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Do you require a liftgate?</comment>
+            </origin_liftgate>
+            <origin_residence translate="label">
+              <label><![CDATA[<b>ORIGIN:</b> Residential]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Is your shipping location a residence?</comment>
+            </origin_residence>
+            <origin_construction translate="label">
+              <label><![CDATA[<b>ORIGIN:</b> Construction Site]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>11</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Is your shipping location a construction site?</comment>
+            </origin_construction>
+            <destination_location_type translate="label">
+              <label><![CDATA[<b>DESTINATION:</b> Location Type]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>Freightquote_Shipping_Model_Carrier_Source_Locationtype</source_model>
+              <sort_order>12</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Choose the location type that best fits. (Recommended: "Destination")</comment>
+            </destination_location_type>
+            <destination_dock translate="label">
+              <label><![CDATA[<b>DESTINATION:</b> Loading Dock]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>13</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Do your recipients typically have loading docks?</comment>
+            </destination_dock>
+            <destination_liftgate translate="label">
+              <label><![CDATA[<b>DESTINATION:</b> Liftgate Required?]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>14</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Do your customers typically require a liftgate?</comment>
+            </destination_liftgate>
+            <destination_residence translate="label">
+              <label><![CDATA[<b>DESTINATION:</b> Residential]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>15</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Do you typically ship to residences? (Prices will be higher)</comment>
+            </destination_residence>
+            <destination_construction translate="label">
+              <label><![CDATA[<b>DESTINATION:</b> Construction Site]]></label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>16</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Do you typically ship to construction sites?</comment>
+            </destination_construction>
+            <blind_ship translate="label">
+              <label>Blind Ship</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>17</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>Blind shipping prevents the recipient of the shipment from seeing the address of the place of origin.</comment>
+            </blind_ship>
+            <handling_action translate="label">
+              <label>Handling Applied</label>
+              <frontend_type>select</frontend_type>
+              <source_model>shipping/source_handlingAction</source_model>
+              <sort_order>18</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </handling_action>
+            <handling_fee translate="label">
+              <label>Handling Fee</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>19</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <can_be_empty>1</can_be_empty>
+            </handling_fee>
+            <rate_modifier translate="label">
+              <label>Rate Modifier</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <can_be_empty>1</can_be_empty>
+              <comment>If you'd like to increase or decrease the rate returned, enter a number that will be multiplied with the rate.  e.g. For a 10% rate increase, enter "1.1" or for a 30% decrease in the rate, enter "0.7"</comment>
+            </rate_modifier>
+            <!--
+            <sallowspecific translate="label">
+              <label>Ship to applicable countries</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>19</sort_order>
+              <frontend_class>shipping-applicable-country</frontend_class>
+              <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </sallowspecific>
+            <specificcountry translate="label">
+              <label>Ship to Specific countries</label>
+              <frontend_type>multiselect</frontend_type>
+              <sort_order>20</sort_order>
+              <source_model>adminhtml/system_config_source_country</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </specificcountry>
+            -->
+            <sort_order translate="label">
+              <label>Sort Order</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>21</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <can_be_empty>1</can_be_empty>
+              <comment>Entering a numeric value here will move this module higher or lower in the selection of shipping methods presented to the customer.</comment>
+            </sort_order>
+          </fields>
+        </freightquote>
+      </groups>
+    </carriers>
+  </sections>
+</config>

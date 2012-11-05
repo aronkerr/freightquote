@@ -1,0 +1,94 @@
+﻿<?xml version="1.0"?>
+<!--
+  Freightquote.com Shipping Module for Magento Commerce
+
+  Copyright (c) 2010 Freightquote.com
+  
+  Developed by Dynamo Effects - sales [at] dynamoeffects.com
+
+  Released under the Open Software License (OSL 3.0)
+-->
+<config>
+  <modules>
+    <Freightquote_Shipping>
+      <version>1.0.0</version>
+      <depends>
+        <Mage_Shipping />
+      </depends>
+    </Freightquote_Shipping>
+  </modules>
+  <global>
+    <models>
+      <freightquote>
+        <class>Freightquote_Shipping_Model</class>
+      </freightquote>
+    </models>
+    <resources>
+      <freightquote_setup>
+        <setup>
+          <module>Freightquote_Shipping</module>
+          <class>Freightquote_Shipping_Model_Resource_Eav_Mysql4_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </freightquote_setup>
+      <freightquote_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </freightquote_write>
+      <freightquote_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </freightquote_read>
+    </resources>
+    <!-- No longer necessary
+    <events>
+      <core_block_abstract_prepare_layout_after>
+        <observers>
+          <freightquote_carrier_observer>
+            <type>Model</type>
+            <class>freightquote/carrier_observer</class>
+            <method>addProductInformationTab</method>
+          </freightquote_carrier_observer>
+        </observers>
+      </core_block_abstract_prepare_layout_after>
+    </events>
+    -->
+    <sales>
+      <quote>
+        <item>
+          <product_attributes>
+            <freightquote_enable/>
+            <freightquote_class/>
+            <freightquote_length/>
+            <freightquote_width/>
+            <freightquote_height/>
+            <freightquote_nmfc/>
+            <freightquote_hzmt/>
+            <freightquote_packaging/>
+            <freightquote_commodity/>
+            <freightquote_content/>
+          </product_attributes>
+        </item>
+      </quote>
+    </sales>
+  </global>
+  <default>
+    <carriers>
+      <freightquote>
+        <model>Freightquote_Shipping_Model_Carrier_Shipping</model>
+        <title>Freightquote.com</title>
+        <username>Xmltest@freightquote.com</username>
+        <password>XML</password>
+        <shipment_label>Thank you for shopping with us!</shipment_label>
+        <origin_country>US</origin_country>
+        <origin_location_type>Origin</origin_location_type>
+        <destination_location_type>Destination</destination_location_type>
+        <rate_modifier>1</rate_modifier>
+      </freightquote>
+    </carriers>
+  </default>
+</config>

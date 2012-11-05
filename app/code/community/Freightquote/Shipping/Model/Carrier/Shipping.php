@@ -181,7 +181,12 @@
       );
 
       /* Process cart items */ 
-      $cartItems = Mage::getModel('checkout/session')->getQuote()->getAllItems();
+	
+      if(Mage::getSingleton('admin/session')->isLoggedIn()){
+	  $cartItems = Mage::getModel('adminhtml/session_quote')->getQuote()->getAllVisibleItems();
+      } else {
+  	$cartItems = Mage::getModel('checkout/session')->getQuote()->getAllItems();
+      }  
       $shipmentProducts = array();
       $counter = 1;
       $excluded = 0;
